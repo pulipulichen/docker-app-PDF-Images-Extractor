@@ -43,7 +43,6 @@ let main = async function () {
   			console.error(e)
   		}
     }
-  		
   }
 }
 
