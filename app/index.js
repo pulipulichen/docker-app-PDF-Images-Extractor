@@ -1,5 +1,6 @@
 const ShellExec = require('./lib/ShellExec')
 const GetFiles = require('./lib/GetFiles')
+const isColab = require('./lib/isColab')
 
 const path = require('path')
 const fs = require('fs')
@@ -34,12 +35,15 @@ let main = async function () {
 
     // ----------------------------------------------------------------
 
-		try {
-			await ShellExec(`cd "/output/${filenameNoExt}/"; zip -r -j "../${filenameNoExt}.zip" ./*`)
-		}
-		catch (e) {
-			console.error(e)
-		}
+    if (isColab) {
+      try {
+  			await ShellExec(`cd "/output/${filenameNoExt}/"; zip -r -j "../${filenameNoExt}.zip" ./*`)
+  		}
+  		catch (e) {
+  			console.error(e)
+  		}
+    }
+  		
   }
 }
 
