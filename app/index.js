@@ -31,6 +31,15 @@ let main = async function () {
 		catch (e) {
 			console.error(e)
 		}
+
+    // ----------------------------------------------------------------
+
+		try {
+			await ShellExec(`cd "/output/${filenameNoExt}/"; zip -r -j "../${filenameNoExt}.zip" ./*`)
+		}
+		catch (e) {
+			console.error(e)
+		}
   }
 }
 
