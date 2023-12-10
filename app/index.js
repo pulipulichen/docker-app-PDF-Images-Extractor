@@ -20,10 +20,10 @@ let main = async function () {
       filenameNoExt = filenameNoExt.slice(0, -4)
     }
 
-		fs.mkdirSync(`${path.dirname(file)}/${filenameNoExt}/`, {recursive: true})
+		fs.mkdirSync(`/output/${filenameNoExt}/`, {recursive: true})
 
 		let result
-		let cmd = `pdfimages "${file}" -png "${path.dirname(file)}/${filenameNoExt}/"`
+		let cmd = `pdfimages "${file}" -png "/output/${filenameNoExt}/"`
 		console.log(cmd)
 		try {
 			result = await ShellExec(cmd)
